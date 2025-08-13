@@ -1,0 +1,13 @@
+.plant-details {
+  display: grid;
+}
+
+.container {
+  /* display: flex; */
+}
+
+.container-plant {
+  display: flex;
+  gap: 1rem;
+  border-radius: 10px solid black;
+}
