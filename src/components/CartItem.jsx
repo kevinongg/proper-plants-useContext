@@ -1,27 +1,15 @@
-const CartItem = ({ plant, setCart }) => {
-  const quantityIncrease = () => {
-    setCart((currentCart) =>
-      currentCart.map((item) => {
-        if (item.id === plant.id) {
-          return { ...item, quantity: item.quantity + 1 };
-        }
-        return item;
-      })
-    );
-  };
+import { useShop } from "../context/PlantContext";
 
-  const quantityDecrease = () => {
-    setCart((currentCart) =>
-      currentCart
-        .map((item) => {
-          if (item.id === plant.id) {
-            return { ...item, quantity: item.quantity - 1 };
-          }
-          return item;
-        })
-        .filter((item) => item.quantity > 0)
-    );
-  };
+// ended up using a prop here because less code and its cleaner
+const CartItem = ({ plant }) => {
+  const { quantityIncrease, quantityDecrease } = useShop();
+
+  //* different way so the component is self sufficient but less clean
+  // const plant = cart.find((item) => item.id === id);
+
+  // if (!plant) {
+  //   return null;
+  // }
 
   return (
     <div className="container">
@@ -30,9 +18,9 @@ const CartItem = ({ plant, setCart }) => {
         {plant.name}
       </section>
       <main>
-        <button onClick={quantityDecrease}>-</button>
+        <button onClick={() => quantityDecrease(plant.id)}>-</button>
         {plant.quantity}
-        <button onClick={quantityIncrease}>+</button>
+        <button onClick={() => quantityIncrease(plant.id)}>+</button>
       </main>
     </div>
   );
