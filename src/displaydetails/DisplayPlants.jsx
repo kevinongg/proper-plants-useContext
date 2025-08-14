@@ -1,12 +1,15 @@
 import PlantDetails from "../components/PlantDetails";
+import "../components/plants.css";
 // import { useShop } from "../context/PlantContext";
 
 const DisplayPlants = () => {
   // const { plants } = useShop();
   return (
-    <section className="container">
+    <section className="plant-container">
       <h2>Plants</h2>
-      <PlantDetails />
+      <div className="plant-details-container">
+        <PlantDetails />
+      </div>
     </section>
   );
 };

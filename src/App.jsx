@@ -1,5 +1,6 @@
 import DisplayPlants from "./displaydetails/DisplayPlants";
 import DisplayCart from "./displaydetails/DisplayCart";
+import "./components/plants.css";
 
 export default function App() {
   // const [plants] = useState(PLANTS);
@@ -8,8 +9,10 @@ export default function App() {
   return (
     <>
       <h1>Proper Plants</h1>
-      <DisplayPlants />
-      <DisplayCart />
+      <div className="app-container">
+        <DisplayPlants />
+        <DisplayCart />
+      </div>
     </>
   );
 }

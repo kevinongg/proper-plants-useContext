@@ -1,13 +1,94 @@
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+  padding: 0 16px;
+}
+
+.plant-details-container {
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+}
+
 .plant-details {
   display: grid;
+  grid-template-rows: auto auto auto;
+
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  text-align: left;
 }
 
-.container {
-  /* display: flex; */
+.plant-details figure {
+  font-size: 70px;
+  margin: 0 0 8px;
 }
 
-.container-plant {
+.plant-details p {
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.plant-details button {
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.plant-details button:hover {
+  background: #979aa0;
+}
+
+.cart-container {
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+}
+
+.cart-item {
   display: flex;
-  gap: 1rem;
-  border-radius: 10px solid black;
+  flex-direction: column;
+
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item section {
+}
+
+.cart-item button {
+  width: 40px;
+  height: 32px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  background: #979aa0;
+}
+
+.cart-item .qty {
+  width: 28px;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+  .cart-container {
+    position: static;
+  }
+  .plant-details-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

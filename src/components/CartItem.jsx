@@ -1,4 +1,5 @@
 import { useShop } from "../context/PlantContext";
+import "./plants.css";
 
 // ended up using a prop here because less code and its cleaner
 const CartItem = ({ plant }) => {
@@ -12,15 +13,19 @@ const CartItem = ({ plant }) => {
   // }
 
   return (
-    <div className="container">
+    <div className="cart-item">
       <section>
-        {plant.image}
+        <span className="emoji">{plant.image}</span>
         {plant.name}
       </section>
       <main>
-        <button onClick={() => quantityDecrease(plant.id)}>-</button>
-        {plant.quantity}
-        <button onClick={() => quantityIncrease(plant.id)}>+</button>
+        <button className="qty-btn" onClick={() => quantityDecrease(plant.id)}>
+          -
+        </button>
+        <span className="qty">{plant.quantity}</span>
+        <button className="qty-btn" onClick={() => quantityIncrease(plant.id)}>
+          +
+        </button>
       </main>
     </div>
   );

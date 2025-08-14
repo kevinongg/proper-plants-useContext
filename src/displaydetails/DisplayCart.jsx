@@ -6,14 +6,14 @@ const DisplayCart = () => {
   const { cart } = useShop();
   if (!cart || cart.length === 0) {
     return (
-      <section className="container">
+      <section className="cart-container">
         <h2>Cart</h2>
         <p>Your cart is empty</p>
       </section>
     );
   }
   return (
-    <div className="container">
+    <div className="cart-container">
       <h2>Cart</h2>
       {cart.map((plant) => (
         <CartItem key={plant.id} plant={plant} />
